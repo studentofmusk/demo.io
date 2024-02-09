@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Form</title>
     <style>
-        body {
+         body {
             font-family: Arial, sans-serif;
             background-color: #f7f7f7;
             margin: 0;
@@ -52,24 +52,67 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
-    </style>
+    </style> 
 </head>
 <body>
     <div class="container">
         <h1>Contact Form</h1>
-        <form action="https://script.google.com/macros/s/AKfycbwe5B1dU2mz3N4oL5ylSW0p6UdPtCg86a7MXRj_yFejbNZ2MDKSZQXLlStJ_hB7LvBK8Q/exec" method="post">
+        <form id="contact-form" action="https://script.google.com/macros/s/AKfycbzdBxslWWdEu0yrlhFXRH_nvq4dIzZlyEHIgMgGSgykbuj8OJGf0qAgJXf73A-rT8XeRg/exec" method="post">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
+            <br>
+            
+            <label for="phone1">Phone 1:</label>
+            <input type="tel" id="phone1" minlength="10" name="phone1" required>
+            <br>
+            
+            <label for="phone2">Phone 2:</label>
+            <input type="tel" id="phone2" name="phone2" required>
+            <br>
             
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" >
+            <br>
             
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" required>
+            <label for="area">Area:</label>
+            <input type="text" id="area" name="area" >
+            <br>
+            
+            <label for="college">College:</label>
+            <input type="text" id="college" name="college" >
+            <br>
+            
+            <label for="dept">Department:</label>
+            <input type="text" id="dept" name="dept" >
+            <br>
+            
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="year" >
+            <br>
+            
+            
+            <label for="date">Date:</label>
+            <input type="date" name="date" id="date">
+            <br>
+            
+            <label for="time">Time:</label>
+            <select name="time" id="time">
+                <option value="9 AM">9 AM</option>
+                <option value="1 PM">1 PM</option>
+            </select>
+            <br>
+            <input type="hidden" id="currenttime" name="currenttime">
             
             <input type="submit" value="Submit">
+            <br>
         </form>
     </div>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            var currentTime = new Date().toLocaleTimeString();
+            document.getElementById('currenttime').value = currentTime;
+        });
+    </script>
 </body>
 </html>
 
